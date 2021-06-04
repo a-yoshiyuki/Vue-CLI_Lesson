@@ -1,6 +1,10 @@
 <template>
  <div>
+   <slot name="title"></slot>
    <slot></slot>
+   <hr>
+   <p>いいねの数</p>
+   <slot name="number"></slot>
  </div>
 </template>
 
@@ -11,7 +15,7 @@ export default {
 </script>
 
 <style scoped>
-  
+
   h1 {
     color: red;
   }
