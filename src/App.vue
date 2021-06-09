@@ -6,7 +6,19 @@
     <LikeNumber :total-number="number" @my-click="number = $event"></LikeNumber>
     <button @click="currentComponent = 'Home'">Home</button>
     <button @click="currentComponent = 'About'">About</button>
-    <component :is="currentComponent"></component>
+    <keep-alive>
+      <component :is="currentComponent"></component>
+    </keep-alive>
+    <div>
+      <h2>イベントのフォーム</h2>
+      <label for="title">タイトル</label>
+      <input
+        id="title"
+        type="text"
+        v-model.lazy="eventData.title"
+      >
+      <p>{{ eventData.title }}</p>
+    </div>
   </div>
 </template>
 
@@ -19,7 +31,10 @@ import Home from "./components/Home.vue";
     data() {
       return {
         number: 14,
-        currentComponent: "Home"
+        currentComponent: "Home",
+        eventData: {
+          title: "タイトル"
+        }
       };
     },
     components: {
@@ -35,11 +50,3 @@ import Home from "./components/Home.vue";
   };
 </script>
 
-<style scoped>
-  div {
-    border: 1px solid blue;
-  }
-  /*h1 {
-    color: red;
-  }*/
-</style>
