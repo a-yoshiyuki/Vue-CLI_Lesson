@@ -17,7 +17,29 @@
         type="text"
         v-model.lazy="eventData.title"
       >
-      <p>{{ eventData.title }}</p>
+      <pre>{{ eventData.title }}</pre>
+      <label for="maxNumber">最大人数</label>
+      <input
+        id="maxNumber"
+        type="number"
+        v-model.number="eventData.maxNumber"
+      >
+      <p>{{ typeof eventData.maxNumber }}</p>
+      <label for="host">主催者</label>
+      <input
+        id="host"
+        type="text"
+        v-model.trim="eventData.host"
+      >
+      <pre>{{ eventData.host }}</pre>
+      <label for="detail">イベントの内容</label>
+      <textarea
+        id="detail"
+        cols="30"
+        rows="10"
+        v-model="eventData.detail"
+      ></textarea>
+      <p style="white-space: pre;">{{ eventData.detail }}</p>
     </div>
   </div>
 </template>
@@ -33,7 +55,10 @@ import Home from "./components/Home.vue";
         number: 14,
         currentComponent: "Home",
         eventData: {
-          title: "タイトル"
+          title: "タイトル",
+          maxNumber: 0,
+          host: "",
+          detail: ""
         }
       };
     },
