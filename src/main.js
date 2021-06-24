@@ -4,22 +4,8 @@ import LikeNumber from './components/LikeNumber.vue';
 
 Vue.config.productionTip = false;
 Vue.component('LikeNumber', LikeNumber);
-Vue.directive("border", {
-  bind(el, binding, vnode) {
+Vue.directive("border", function(el, binding) {
 
-  },
-  inserted(el, binding, vnode) {
-
-  },
-  update(el, binding, vnode, oldVnode) {
-
-  },
-  componentUpdated(el, binding, vnode, oldVnode) {
-
-  },
-  unbind(el, binding, vnode) {
-
-  }
 });
 
 new Vue({
