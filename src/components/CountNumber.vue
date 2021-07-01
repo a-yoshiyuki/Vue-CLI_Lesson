@@ -10,5 +10,8 @@ import {tokyo} from "@/tokyo";
 
 export default {
   mixins: [tokyo],
+  created() {
+    console.log("created in component");
+  }
 };
 </script>
