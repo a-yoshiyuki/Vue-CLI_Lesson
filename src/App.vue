@@ -1,7 +1,15 @@
 <template>
   <div class="main">
     <button @click="show = !show">切り替え</button>
-    <transition name="fade" appear>
+    <transition
+      name="fade"
+      enter-class=""
+      enter-active-class="animated bounce"
+      enter-to-class=""
+      leave-class=""
+      leave-active-class="animated shake"
+      leave-to-class=""
+      appear>
       <p v-if="show">hello</p>
     </transition>
     <transition name="slide" type="animation" appear>
