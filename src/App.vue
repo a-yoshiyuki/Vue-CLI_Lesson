@@ -1,18 +1,20 @@
 <template>
   <div class="main">
+    <button @click="myAnimation = 'slide'">Slide</button>
+    <button @click="myAnimation = 'fade'">Fade</button>
+    <p>{{myAnimation}}</p>
     <button @click="show = !show">切り替え</button>
+    <transition name="fade">
+      <p v-if="show" key="bye">さよなら</p>
+      <p v-else key="hello">こんにちは</p>
+    </transition>
     <transition
-      name="fade"
-      enter-class=""
-      enter-active-class="animated bounce"
-      enter-to-class=""
-      leave-class=""
-      leave-active-class="animated shake"
-      leave-to-class=""
+      enter-active-class="animate__animated animate__bounce"
+      leave-active-class="animate__animated animate__shakeX"
       appear>
       <p v-if="show">hello</p>
     </transition>
-    <transition name="slide" type="animation" appear>
+    <transition :name="myAnimation" appear>
       <p v-if="show">bye</p>
     </transition>
   </div>
@@ -22,7 +24,8 @@
 export default {
   data() {
     return {
-      show: true
+      show: true,
+      myAnimation: "slide"
     };
   }
 };
